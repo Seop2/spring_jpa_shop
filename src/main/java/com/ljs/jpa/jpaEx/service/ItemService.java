@@ -23,4 +23,12 @@ public class ItemService {
     public Item findOne(Long itemId){//상품 조회
         return itemRepository.findOne(itemId);
     }
+    //영속성 컨텍스트가 자동변경
+    @Transactional
+    public void updateItem(Long id, String name, int price, int stockQuantity){//파라미터가 많을 경우 dto로 따로 빼기
+        Item item = itemRepository.findOne(id);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+    }
 }

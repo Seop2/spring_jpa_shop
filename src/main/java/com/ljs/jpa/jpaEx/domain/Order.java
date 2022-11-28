@@ -33,6 +33,7 @@ public class Order{
     private Delivery delivery;
 
     private LocalDateTime orderDate;//주문시간
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;//주문상태 (주문 , 취소)
 

@@ -43,11 +43,12 @@ public class OrderRepository {
                 jpql += "where";
                 isFirstCondition = false;
             }else {
-                jpql +="and";
+                jpql += " and";
             }
-            jpql += "m.name like :name";
+            jpql += " m.name like :name";
         }
         TypedQuery<Order> query = em.createQuery(jpql, Order.class).setMaxResults(1000);
+
         if(orderSearch.getOrderStatus()!=null){
             query = query.setParameter("status", orderSearch.getOrderStatus());
         }
@@ -79,4 +80,8 @@ public class OrderRepository {
         TypedQuery<Order>query = em.createQuery(cq).setMaxResults(1000);
         return query.getResultList();
     }
+//    public List<Order> findAll(OrderSearch orderSearch){
+//        //검색 로직....
+//        return null;
+//    }
 }

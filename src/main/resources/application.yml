@@ -17,3 +17,7 @@ spring:
       logging.level:
         org.hibernate.SQL: debug
       #  org.hibernate.type: trace
+# 콘솔창 색깔 이쁘게
+  output:
+    ansi:
+      enabled: ALWAYS
